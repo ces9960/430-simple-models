@@ -120,7 +120,7 @@ const hostPage4 = (req, res) => {
       return res.status(500).json({err});
     }
   }
-  res.render('page4', {dogs: docs});
+  return res.render('page4', {dogs: docs});
 };
 
 // function to handle get request to send the name

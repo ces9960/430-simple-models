@@ -276,7 +276,7 @@ const setDog = (req, res) => {
 };
 
 const updateDog = (req, res) => {
-  if (!req.body.name) {
+  if (!req.query.name) {
     return res.status(400).json({ error: 'Name is required to perform a search' });
   }
 

@@ -114,9 +114,9 @@ const hostPage3 = (req, res) => {
   res.render('page3');
 };
 
-const hostPage4 = (req,res) => {
+const hostPage4 = (req, res) => {
   res.render('page4');
-}
+};
 
 // function to handle get request to send the name
 // controller functions in Express receive the full HTTP request
@@ -256,7 +256,7 @@ const setDog = (req, res) => {
   if (!req.body.firstname || !req.body.lastname || !req.body.age || !req.body.breed) {
     return res.status(400).json({ error: 'firstname, lastname, age, and breed are all required' });
   }
-  const name = `${req.firstname} ${req.lastname}`;
+  const name = `${req.body.firstname} ${req.body.lastname}`;
 
   const dogData = {
     name,

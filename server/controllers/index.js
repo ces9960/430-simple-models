@@ -46,6 +46,10 @@ const readAllCats = (req, res, callback) => {
   Cat.find(callback).lean();
 };
 
+const readAllDogs = (req, res, callback) => {
+  Dog.find(callback).lean();
+};
+
 // function to find a specific cat on request.
 // Express functions always receive the request and the response.
 const readCat = (req, res) => {
@@ -116,11 +120,12 @@ const hostPage3 = (req, res) => {
 
 const hostPage4 = (req, res) => {
   const callback = (err, docs) => {
-    if(err){
-      return res.status(500).json({err});
+    if (err) {
+      return res.status(500).json({ err });
     }
-  }
-  return res.render('page4', {dogs: docs});
+    return res.render('page4', { dogs: docs });
+  };
+  readAllDogs(req, res, callback);
 };
 
 // function to handle get request to send the name

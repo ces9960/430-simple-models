@@ -115,7 +115,12 @@ const hostPage3 = (req, res) => {
 };
 
 const hostPage4 = (req, res) => {
-  res.render('page4');
+  const callback = (err, docs) => {
+    if(err){
+      return res.status(500).json({err});
+    }
+  }
+  res.render('page4', {dogs: docs});
 };
 
 // function to handle get request to send the name
